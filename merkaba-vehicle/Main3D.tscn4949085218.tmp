@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://dagv0s3u120oo"]
+
+[ext_resource type="PackedScene" uid="uid://byira0c5ok17y" path="res://MerkabaCT.blend" id="1_pwfse"]
+[ext_resource type="Script" uid="uid://bbradtsmjew25" path="res://Movement.gd" id="1_qgfr0"]
+[ext_resource type="Script" uid="uid://hdl2pwjmqhd2" path="res://HUD.gd" id="2_8iyjh"]
+[ext_resource type="Script" uid="uid://dwufrt1m3a2nr" path="res://MagnitudeInput.gd" id="2_kvye0"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_kvye0"]
+physical_keycode = 7
+
+[sub_resource type="Shortcut" id="Shortcut_8iyjh"]
+events = [SubResource("InputEventKey_kvye0")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvye0"]
+
+[node name="Node3D" type="Node3D" unique_id=1696103797]
+script = ExtResource("1_qgfr0")
+
+[node name="MerkabaCT2" parent="." unique_id=1066772096 instance=ExtResource("1_pwfse")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1027003655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+projection = 1
+current = true
+size = 10.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2001300715]
+script = ExtResource("2_8iyjh")
+
+[node name="numberpad" type="GridContainer" parent="HUD" unique_id=1054094011]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -188.0
+offset_top = -188.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 3
+
+[node name="upleft" type="Button" parent="HUD/numberpad" unique_id=1757349642]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+shortcut = SubResource("Shortcut_8iyjh")
+text = "7 ↖"
+
+[node name="up" type="Button" parent="HUD/numberpad" unique_id=895582628]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "8 ↑"
+
+[node name="upright" type="Button" parent="HUD/numberpad" unique_id=1547175975]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "9 ↗"
+
+[node name="left" type="Button" parent="HUD/numberpad" unique_id=540618527]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "4 ←"
+
+[node name="center" type="Button" parent="HUD/numberpad" unique_id=1466269945]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "5 ·"
+
+[node name="right" type="Button" parent="HUD/numberpad" unique_id=163833379]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "6 →
+"
+
+[node name="downleft" type="Button" parent="HUD/numberpad" unique_id=736753082]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "1 ↙
+"
+
+[node name="down" type="Button" parent="HUD/numberpad" unique_id=1660721162]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "2 ↓
+"
+
+[node name="downright" type="Button" parent="HUD/numberpad" unique_id=1871655483]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "3 ↘
+"
+
+[node name="Instructions" type="HBoxContainer" parent="HUD" unique_id=1834172881]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 652.0
+offset_bottom = 78.0
+
+[node name="Prompt" type="Label" parent="HUD/Instructions" unique_id=1787498178]
+layout_mode = 2
+text = "Enter magnitude 1 and select a direction vector using the numberpad:"
+
+[node name="MagnitudeInput" type="LineEdit" parent="HUD/Instructions" unique_id=1059345438]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kvye0")
+flat = true
+script = ExtResource("2_kvye0")
+
+[node name="sqrt" type="Button" parent="HUD" unique_id=1642957252]
+custom_minimum_size = Vector2(60, 40)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -232.0
+offset_bottom = -192.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "√"
+
+[node name="InstructionBlock" type="VBoxContainer" parent="HUD" unique_id=1939228555]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+
+[node name="Equations" type="Label" parent="HUD/InstructionBlock" unique_id=1668015045]
+layout_mode = 2
